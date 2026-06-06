@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>This is a test</title>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <h1>Heading test</h1>
+        <p>Paragraph Test</p>
+        <form onsubmit="return addToInventory(this)">
+            <label for="itemName">Enter the Item Name:</label><br>
+            <input type="text" id="itemName" name="itemName"><br>
+            <label for="amount">Enter the amount:</label><br>
+            <input type="number" id="amount" name="amount"><br>
+            <input type="Submit" value="Submit">       
+        </form>
+        <input type="button" id="resetbutton" value="Reset Inventory" onclick="resetInventory()">
+    </body>
+</html>
