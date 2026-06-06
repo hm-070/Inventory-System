@@ -1,5 +1,8 @@
-class InventoryManager {
+public class InventoryManager {
     public static void main(String[] args) {
-        System.out.println("TEST: " + args[0]);
+        int test = Integer.parseInt(args[1]);
+        Inventory testInv = new Inventory();
+        testInv.addToMap(args[0], test);
+        System.out.println("testInv: " + testInv);
     }
 }
