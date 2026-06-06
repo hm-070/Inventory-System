@@ -2,18 +2,22 @@
 <html>
     <head>
         <title>This is a test</title>
-        <script src="script.js"></script>
     </head>
     <body>
-        <h1>Heading test</h1>
-        <p>Paragraph Test</p>
+        <h1>Inventory System</h1>
+        <p>Enter in the name of the item and how many you are adding</p>
         <form onsubmit="return addToInventory(this)">
             <label for="itemName">Enter the Item Name:</label><br>
             <input type="text" id="itemName" name="itemName"><br>
+            <br>
             <label for="amount">Enter the amount:</label><br>
             <input type="number" id="amount" name="amount"><br>
+            <br>
             <input type="Submit" value="Submit">       
         </form>
+        <br>
         <input type="button" id="resetbutton" value="Reset Inventory" onclick="resetInventory()">
+        <table id="inventoryTable"></table>
+        <script src="script.js"></script>
     </body>
 </html>

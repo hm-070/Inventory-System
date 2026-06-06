@@ -12,15 +12,37 @@ function addToInventory(form){
         inventory.set(itemNameFromForm, noOfItems);
     }
     displayMap();
+    updateTable();
     return false;
+}
+
+function updateTable(){
+    var table = document.getElementById("inventoryTable");
+    table.innerHTML = `
+    <br>
+    <tr>
+        <th>Items</th>
+        <th>Amount</th>
+    </tr>
+    `;
+    for (let [item, amount] of inventory){
+        var row = table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        // Items cell
+        cell1.innerHTML = item;
+        // Amount cell
+        cell2.innerHTML = amount;
+    }
 }
 
 function resetInventory(){
     for(let [k, v] of inventory){
         inventory.delete(k);
     }
-    console.log("Inventory Reset")
-    displayMap()
+    console.log("Inventory Reset");
+    updateTable();
+    displayMap();
 }
 
 function displayMap(){
