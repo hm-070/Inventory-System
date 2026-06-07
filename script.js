@@ -1,4 +1,9 @@
 const inventory = new Map();
+inventory.set("test", 1);
+inventory.set("test2", 1);
+inventory.set("test3", 1);
+inventory.set("test4", 1);
+
 
 function addToInventory(form){
     const itemNameFromForm = form.itemName.value;
@@ -19,13 +24,7 @@ function addToInventory(form){
 }
 
 window.onload = function(){
-    var table = document.getElementById("inventoryTable");
-    table.innerHTML = `
-    <tr>
-        <th>Items</th>
-        <th>Amount</th>
-    </tr>
-    `;
+    updateTable();
 }
 
 function updateTable(){
