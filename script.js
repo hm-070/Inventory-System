@@ -55,6 +55,7 @@ function updateTable(){
         plusMinusCell.innerHTML = `<input type="button" id="plusOne${item}" value="+" onclick="plusOne('${item}')"><input type="button" id="minusOne${item}" value="-" onclick="minusOne('${item}')">`;
         deleteCell.innerHTML = `<input type="button" id="delete${item}" value="Delete" onclick="deleteItem('${item}')">`;
     }
+    console.log("calling save inventory")
     saveInventory();
 }
 
