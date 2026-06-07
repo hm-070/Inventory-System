@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>This is a test</title>
+    </head>
+    <body>
+        <h1 class="centre">Kitchen Inventory System</h1>
+        <p class="centre">Enter in the name of the item and how many you are adding</p>
+        <form onsubmit="return addToInventory(this)" class="centre">
+            <label for="itemName">Enter the Item Name:</label><br>
+            <input type="text" id="itemName" name="itemName" autocomplete="off"><br>
+            <br>
+            <label for="amount">Enter the amount:</label><br>
+            <input type="number" id="amount" name="amount"><br>
+            <br>
+            <input type="Submit" value="Submit">       
+        </form>
+        <br>
+        <input type="button" id="resetbutton" value="Reset Inventory" onclick="resetInventory()" style="display: block; margin: 0 auto;">
+        <br>
+        <table id="inventoryTable" class="centre"></table>
+        <br>
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </body>
+</html>
