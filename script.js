@@ -16,6 +16,17 @@ function addToInventory(form){
     return false;
 }
 
+window.onload = function(){
+    var table = document.getElementById("inventoryTable");
+    table.innerHTML = `
+    <br>
+    <tr>
+        <th>Items</th>
+        <th>Amount</th>
+    </tr>
+    `;
+}
+
 function updateTable(){
     var table = document.getElementById("inventoryTable");
     table.innerHTML = `
@@ -29,11 +40,37 @@ function updateTable(){
         var row = table.insertRow(-1);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
-        // Items cell
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
         cell1.innerHTML = item;
-        // Amount cell
         cell2.innerHTML = amount;
+        cell3.innerHTML = `<input type="button" id="plusOne${item}" value="+" onclick="plusOne('${item}')"><input type="button" id="minusOne${item}" value="-" onclick="minusOne('${item}')">`;
+        cell4.innerHTML = `<input type="button" id="delete${item}" value="Delete" onclick="deleteItem('${item}')">`;
     }
+}
+
+function deleteItem(item){
+    console.log(`deleteItem(${item})`);
+    inventory.delete(item);
+    updateTable();
+}
+
+function plusOne(item){
+    console.log(`plusOne${item}`);
+    var amount = inventory.get(item);
+    amount++;
+    inventory.set(item, amount);
+    updateTable();
+}
+
+function minusOne(item){
+    console.log(`minusOne${item}`);
+    var amount = inventory.get(item);
+    if (amount > 1){
+        amount--;
+    }
+    inventory.set(item, amount);
+    updateTable();
 }
 
 function resetInventory(){
