@@ -37,6 +37,7 @@ window.onload = function(){
 }
 
 function updateTable(){
+    console.log("updateTable() called");
     var table = document.getElementById("inventoryTable");
     table.innerHTML = `
     <tr>
