@@ -1,8 +1,4 @@
 const inventory = new Map();
-inventory.set("test", 1);
-inventory.set("test2", 1);
-inventory.set("test3", 1);
-inventory.set("test4", 1);
 
 
 function addToInventory(form){
@@ -23,7 +19,20 @@ function addToInventory(form){
     return false;
 }
 
+function saveInventory() {
+    console.log('saveInventory Called');
+    localStorage.setItem('inventory', JSON.stringify(Object.fromEntries(inventory)));
+    console.log('Inventory Saved');
+}
+
 window.onload = function(){
+    const saved = localStorage.getItem('inventory');
+    if (saved) {
+        const data = JSON.parse(saved)
+        for (let [k, v] of Object.entries(data)){
+            inventory.set(k, Number(v));
+        }
+    }
     updateTable();
 }
 
@@ -46,6 +55,7 @@ function updateTable(){
         plusMinusCell.innerHTML = `<input type="button" id="plusOne${item}" value="+" onclick="plusOne('${item}')"><input type="button" id="minusOne${item}" value="-" onclick="minusOne('${item}')">`;
         deleteCell.innerHTML = `<input type="button" id="delete${item}" value="Delete" onclick="deleteItem('${item}')">`;
     }
+    saveInventory();
 }
 
 function deleteItem(item){
